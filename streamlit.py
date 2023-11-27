@@ -1,22 +1,10 @@
-import numpy as np
-import pandas as pd
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.preprocessing import StandardScaler
-from imblearn.over_sampling import RandomOverSampler
 import pickle
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-from sklearn.pipeline import Pipeline
-from sklearn.model_selection import cross_validate
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-import joblib
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.svm import SVC
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.ensemble import RandomForestClassifier
+import pandas as pd
 import streamlit as st
-from sklearn.ensemble import AdaBoostClassifier
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+
 
 
 st.set_page_config(
