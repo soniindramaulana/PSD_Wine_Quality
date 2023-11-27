@@ -1,5 +1,4 @@
 import numpy as np
-import seaborn as sns
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
