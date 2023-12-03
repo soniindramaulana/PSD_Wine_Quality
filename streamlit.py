@@ -53,7 +53,7 @@ fitur = data.drop(columns=['quality'], axis= 1)
 target = data['quality'].apply(lambda y_value: 1 if y_value >= 7 else 0)
 
 st.title("Visualisasi")
-dt = pd.read_csv('data_clean.csv')
+dt = pd.read_csv('data_bersih.csv')
 st.write(dt.columns)
 st.write(dt['quality'].value_counts())
 
@@ -93,16 +93,16 @@ data_implementasi = pd.DataFrame(results)
 fitur_train, fitur_test, target_train, target_test = train_test_split(fitur, target, test_size=0.25, random_state=42)
 
 st.write(data_implementasi)
-with open('zscore.pkl', 'rb') as file:
-    zscorescaler = pickle.load(file)
+with open('minmax.pkl', 'rb') as file:
+    minmaxscaler = pickle.load(file)
 
-zscoretraining = zscorescaler.transform(fitur_train)
-zscoretesting = zscorescaler.transform(fitur_test)
+minmaxtraining = minmaxscaler.transform(fitur_train)
+minmaxtesting = minmaxscaler.transform(fitur_test)
 
-with open('best_model_rf_zscore.pkl', 'rb') as file:
+with open('best_model_rf_minmax.pkl', 'rb') as file:
     rfmodel = pickle.load(file)
 
-rfmodel.fit(zscoretraining, target_train)
+rfmodel.fit(minmaxtraining, target_train)
 
 if st.button("Cek Prediksi"):
     st.write(data_implementasi)
